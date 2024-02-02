@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+/* Reset some default styles */
+body {
+  background-color: #333;
+  font-family: Verdana, Tahoma, sans-serif;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Global container styles */
+.container {
+  background-color: #222; /* Dark mode background color */
+  color: white; /* Dark mode text color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Tab container styles */
+.tab-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #222; /* Darker background for tabs */
+  margin-top: 10px;
+}
+
+/* Common styles for both clickable and non-clickable tabs */
+.tab {
+  padding: 7px 30px;
+  cursor: pointer;
+  user-select: none; /* Disable text selection */
+  border: none;
+  background-color: #222; /* Darker background for tabs */
+  color: #888;
+  margin: 0;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 14px;
+  border-bottom: 1px solid #444;
+  border-left: 1px solid #444;
+  border-top: 1px solid #444;
+}
+
+/* Specific styles for non-clickable tabs */
+.non-clickable {
+  color: transparent; /* Make text transparent */
+  cursor: default; /* Set cursor to default */
+  background-color: transparent;
+  border-top: 1px solid #444;
+}
+
+/* Style the first tab */
+.tab:first-child {
+  border-top: 1px solid #444;
+  border-left: 0;
+}
+
+/* Style the last tab to extend the remaining space */
+.tab:last-child {
+  margin-right: 0; /* Remove right margin from the last tab */
+  border-right: 1px solid #444;
+  border-top: 1px solid #444;
+  flex-grow: 1;
+}
+
+/* Hover effect for clickable tabs */
+.tab:not(.non-clickable):hover {
+  background-color: #333; /* Hover background color */
+}
+
+/* Active tab styles */
+.tab.active {
+  background-color: #2c2c2c; /* Active tab background color */
   color: white;
+  border-top: 1px solid #ffcc00; /* Active tab border color */
+  border-bottom: none;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hover effect for the active tab without changing its color */
+.tab.active:hover {
+  background-color: #2c2c2c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Content styles */
+.content {
+  padding: 15px;
+  padding-left: 50px;
+  background-color: #2c2c2c;
+  min-height: 100vh;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }

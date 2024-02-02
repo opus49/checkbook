@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 
+import Budget from './components/Budget';
+import Credits from './components/Credits';
+import Debits from './components/Debits';
+import Ledger from './components/Ledger';
+
 function App() {
   const [activeTab, setActiveTab] = useState("ledger");
   const openTab = (tabName) => {
     setActiveTab(tabName);
   }
 
-
-       <button
-        className={`tab-button ${activeTab === 'ledger' ? 'active' : ''}`}
-        onClick={() => openTab('ledger')}
-      ></button>
   return (
     <div className="container">
 
@@ -25,21 +25,10 @@ function App() {
       </div>
 
       <div className="content">
-        <div id="ledger" className={`tab-content ${activeTab === 'ledger'? 'active' : ''}`}>
-          <p>Ledger...</p>
-        </div>
-
-        <div id="credits" className={`tab-content ${activeTab === 'credits'? 'active' : ''}`}>
-          <p>Credits...</p>
-        </div>
-
-        <div id="debits" className={`tab-content ${activeTab === 'debits'? 'active' : ''}`}>
-          <p>Debits...</p>
-        </div>
-
-        <div id="budget" className={`tab-content ${activeTab === 'budget'? 'active' : ''}`}>
-          <p>Budget...</p>
-        </div>
+        <Ledger activeTab={activeTab}/>
+        <Credits activeTab={activeTab}/>
+        <Debits activeTab={activeTab}/>
+        <Budget activeTab={activeTab}/>
       </div>
 
     </div>

@@ -1,6 +1,6 @@
 import UnderConstruction from "./Util";
 
-function Budget({activeTab}) {
+function Budget({ activeTab, data }) {
     return (
       <div id="budget" className={`tab-content ${activeTab === 'budget'? 'active' : ''}`}>
         <p>Budget... under construction</p>

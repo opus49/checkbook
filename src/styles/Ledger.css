@@ -1,0 +1,78 @@
+/* Style for the table */
+table {
+  max-width: 800px;;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Style for table headers */
+th {
+  background-color: #444;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style for table rows */
+tr {
+  background-color: #333;
+  color: white;
+  border-bottom: 1px solid #444;
+  height: 20px;
+  line-height: 20px;
+  transition: background-color 0.2s;
+}
+
+tr:hover {
+    background-color: #555;
+}
+
+/* Style for alternating rows */
+tr:nth-child(even) {
+  background-color: #222;
+}
+
+/* Style for table cells */
+td {
+  padding: 10px;
+}
+
+/* Style for negative balance */
+td.negative-balance {
+  background-color: #ff3333; /* Red background for negative balances */
+  color: white;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+th:first-child,
+td:first-child {
+    width: 125px;
+    padding-left: 40px;
+}
+
+td:nth-child(3),
+td:nth-child(4) {
+    width: 100px;
+    padding-right: 20px;
+}
+
+td:nth-child(5) {
+    width: 40px;
+}
+
+.context-menu-trigger {
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}

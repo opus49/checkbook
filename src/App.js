@@ -1,16 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import Budget from './components/Budget';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
 import Ledger from './components/Ledger';
+import { fetchData } from "./services/dataService";
 
 function App() {
   const [activeTab, setActiveTab] = useState("ledger");
+  const [data, setData] = useState(null);
+
   const openTab = (tabName) => {
     setActiveTab(tabName);
   }
+
+  const updateData = (newData) => {
+    setData(newData);
+  };
+
+  useEffect(() => {
+    // fetch data when component mounts
+    fetchData().then((fetchedData) => {
+      setData(fetchedData);
+    });
+  }, []);
 
   return (
     <div className="container">
@@ -25,10 +39,10 @@ function App() {
       </div>
 
       <div className="content">
-        <Ledger activeTab={activeTab}/>
-        <Credits activeTab={activeTab}/>
-        <Debits activeTab={activeTab}/>
-        <Budget activeTab={activeTab}/>
+        <Ledger activeTab={activeTab} data={data}/>
+        <Credits activeTab={activeTab} data={data}/>
+        <Debits activeTab={activeTab} data={data}/>
+        <Budget activeTab={activeTab} data={data}/>
       </div>
 
     </div>

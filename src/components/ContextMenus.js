@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/ContextMenus.css";
 
-function LedgerContextMenu({ isVisible, position }) {
+export function LedgerContextMenu({ isVisible, position }) {
     const options = ["Edit", "Delete"];
 
     return isVisible ? (
@@ -14,5 +14,3 @@ function LedgerContextMenu({ isVisible, position }) {
         </div>
     ) : null;
 }
-
-export default LedgerContextMenu;

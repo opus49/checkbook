@@ -1,4 +1,4 @@
-import UnderConstruction from "./Util";
+import { UnderConstruction } from "./Util";
 
 function Debits({ activeTab, data }) {
     return (

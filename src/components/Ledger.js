@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import LedgerContextMenu from './ContextMenus';
+import React, { useState, useEffect, useCallback } from 'react';
+import { LedgerContextMenu } from './ContextMenus';
 import "../styles/Ledger.css";
 
 function Ledger({ activeTab, data } ) {
@@ -15,7 +15,7 @@ function Ledger({ activeTab, data } ) {
         setContextMenuPosition({ top: event.clientY, left: event.clientX });
     }
 
-    const handleDocumentClick = (event) => {
+    const handleDocumentClick = useCallback((event) => {
         console.log("document click!");
         if (isContextMenuVisible) {
             console.log("context menu is visible");
@@ -27,7 +27,7 @@ function Ledger({ activeTab, data } ) {
         else {
             console.log("context menu not visible");
         }
-    }
+    }, [isContextMenuVisible]);
 
     const handleRowMouseEvent = (event, rowIndex) => {
         if (!event.target.classList.contains("context-menu-trigger")) {
@@ -56,7 +56,7 @@ function Ledger({ activeTab, data } ) {
         return () => {
             document.removeEventListener("click", handleDocumentClick);
         };
-    }, [isContextMenuVisible]);
+    }, [isContextMenuVisible, handleDocumentClick]);
 
     return (
       <div id="ledger" className={`tab-content ${activeTab === 'ledger'? 'active' : ''}`}>
